@@ -2,6 +2,7 @@ import img1 from "../assets/images/superpalace.png";
 import img2 from "../assets/images/skycast.png";
 import img3 from "../assets/images/obatechark.png";
 import img4 from "../assets/images/pizza.png";
+import img5 from "../assets/images/llyway.png";
 
 const projects = [
   {
@@ -30,6 +31,15 @@ const projects = [
     tags: ["Web"],
     image: img4,
     link: "https://pizza-website-puce.vercel.app/",
+  },
+  {
+    name: "Llyway Clothing Website",
+    year: "Ongoing",
+    description:
+      "A clothing e-commerce website built for a local clothing store, featuring an online catalog, shopping cart, and secure checkout to enhance the shopping experience.",
+    tags: ["Web"],
+    image: img5,
+    link: "https://llyway-clothing.web.app/",
   },
   {
     name: "Sky Cast Projects",

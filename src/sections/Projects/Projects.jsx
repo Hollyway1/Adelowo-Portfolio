@@ -1,6 +1,6 @@
 import React from "react";
 import Reveal from "../../components/Reveal";
-import { FolderKanban } from "lucide-react";
+import { FolderKanban, ExternalLink } from "lucide-react";
 import projects from "../../data/projects";
 
 const Projects = () => {
@@ -40,16 +40,33 @@ const Projects = () => {
                 className="group relative block rounded-3xl overflow-hidden border border-gray-100 dark:border-white/10 bg-white/70 dark:bg-white/5 backdrop-blur-xl transition duration-500 hover:-translate-y-2 hover:shadow-2xl"
               >
 
-                {/* 🔥 gradient glow border effect */}
+                {/* gradient glow effect */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-pink-500/10" />
 
                 {/* IMAGE */}
-                <div className="overflow-hidden">
+                <div className="overflow-hidden relative">
+
                   <img
                     src={project.image}
                     alt={project.name}
                     className="w-full h-56 object-cover transform group-hover:scale-110 transition duration-700 ease-out"
                   />
+
+                  {/* HOVER OVERLAY (ICON + TEXT) */}
+                  <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+
+                    <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:scale-105 transition">
+
+                      <ExternalLink className="text-white w-5 h-5" />
+
+                      <span className="text-white text-xs font-medium">
+                        View Live Project
+                      </span>
+
+                    </div>
+
+                  </div>
+
                 </div>
 
                 {/* CONTENT */}

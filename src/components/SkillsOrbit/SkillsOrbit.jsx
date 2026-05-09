@@ -1,5 +1,15 @@
 import React, { useState } from "react";
 import * as SiIcons from "react-icons/si";
+import {
+  Code2,
+  Palette,
+  Braces,
+  FileCode,
+  Layers,
+  Boxes,
+  Globe,
+  Wind,
+} from "lucide-react";
 import "./SkillsOrbit.css";
 
 const skills = [
@@ -14,10 +24,21 @@ const skills = [
 const SkillsOrbit = () => {
   const [active, setActive] = useState(null);
 
+  const tags = [
+    { name: "HTML", icon: <FileCode size={16} /> },
+    { name: "CSS", icon: <Palette size={16} /> },
+    { name: "JavaScript", icon: <Braces size={16} /> },
+    { name: "TypeScript", icon: <Code2 size={16} /> },
+    { name: "ReactJS", icon: <Layers size={16} /> },
+    { name: "Redux", icon: <Boxes size={16} /> },
+    { name: "NextJS", icon: <Globe size={16} /> },
+    { name: "TailwindCSS", icon: <Wind size={16} /> },
+  ];
+
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center bg-white dark:bg-black text-black dark:text-white px-6 overflow-hidden">
 
-      {/* 🌌 CINEMATIC BACKGROUND */}
+      {/* 🌌 BACKGROUND */}
       <div className="absolute inset-0">
         <div className="absolute top-[-200px] left-[-200px] w-[600px] h-[600px] bg-cyan-500/20 blur-[180px] rounded-full" />
         <div className="absolute bottom-[-200px] right-[-200px] w-[600px] h-[600px] bg-purple-600/20 blur-[180px] rounded-full" />
@@ -26,7 +47,7 @@ const SkillsOrbit = () => {
 
       <div className="relative z-10 flex flex-col items-center">
 
-        {/* ✨ HEADER */}
+        {/* HEADER */}
         <div className="text-center max-w-4xl mb-10">
 
           <h2 className="text-5xl md:text-7xl font-extrabold tracking-tight">
@@ -43,38 +64,36 @@ const SkillsOrbit = () => {
 
         </div>
 
-        {/* 🧩 SKILL TAGS */}
+        {/* 🧩 SKILL TAGS (UPGRADED) */}
         <div className="flex flex-wrap justify-center gap-3 mb-14 max-w-3xl">
-          {[
-            "HTML",
-            "CSS",
-            "JavaScript",
-            "TypeScript",
-            "ReactJS",
-            "Redux",
-            "NextJS",
-            "TailwindCSS",
-          ].map((item) => (
+
+          {tags.map((item) => (
             <span
-              key={item}
-              className="px-4 py-2 text-sm md:text-base rounded-full
-              bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10
-              text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white
+              key={item.name}
+              className="group flex items-center gap-2 px-4 py-2 text-sm md:text-base rounded-full
+              bg-black/5 dark:bg-white/5
+              border border-black/10 dark:border-white/10
+              text-gray-700 dark:text-gray-300
+              hover:text-black dark:hover:text-white
               hover:border-cyan-400
-              hover:shadow-[0_0_20px_rgba(34,211,238,0.3)]
+              hover:shadow-[0_0_25px_rgba(34,211,238,0.25)]
               transition duration-300 backdrop-blur-xl"
             >
-              {item}
+              <span className="text-cyan-500 group-hover:scale-110 transition">
+                {item.icon}
+              </span>
+              {item.name}
             </span>
           ))}
+
         </div>
 
-        {/* 🌌 ORBIT TITLE */}
+        {/* ORBIT TITLE */}
         <h3 className="text-lg tracking-widest text-gray-500 dark:text-gray-400 mb-10 uppercase">
           Skills Universe
         </h3>
 
-        {/* 🪐 ORBIT (INTERACTIVE + SCALED) */}
+        {/* ORBIT */}
         <div className="scale-125 md:scale-150">
 
           <div className="scene">

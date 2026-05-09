@@ -1,6 +1,7 @@
 import React from "react";
 import Reveal from "../../components/Reveal";
 import { motion } from "framer-motion";
+import { Calendar, FolderCode, TrendingUp } from "lucide-react";
 
 const Experience = () => {
   return (
@@ -23,20 +24,28 @@ const Experience = () => {
 
             {/* MINI STATS */}
             <div className="mt-10 grid grid-cols-3 max-w-xl mx-auto gap-4 text-center">
-              <div className="p-4 rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5">
+
+              {/* YEARS */}
+              <div className="p-4 rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 hover:scale-105 transition">
+                <Calendar className="mx-auto mb-2 text-cyan-500" size={20} />
                 <p className="text-2xl font-bold text-cyan-500">2</p>
                 <p className="text-xs text-gray-500">Years</p>
               </div>
 
-              <div className="p-4 rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5">
+              {/* PROJECTS */}
+              <div className="p-4 rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 hover:scale-105 transition">
+                <FolderCode className="mx-auto mb-2 text-cyan-500" size={20} />
                 <p className="text-2xl font-bold text-cyan-500">10+</p>
                 <p className="text-xs text-gray-500">Projects</p>
               </div>
 
-              <div className="p-4 rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5">
+              {/* EARNINGS / GROWTH */}
+              <div className="p-4 rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 hover:scale-105 transition">
+                <TrendingUp className="mx-auto mb-2 text-cyan-500" size={20} />
                 <p className="text-2xl font-bold text-cyan-500">$200+</p>
                 <p className="text-xs text-gray-500">Max Budget</p>
               </div>
+
             </div>
           </div>
         </Reveal>
@@ -61,7 +70,6 @@ const Experience = () => {
               className="group relative rounded-3xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 p-8 overflow-hidden"
             >
 
-              {/* glow effect */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-gradient-to-r from-cyan-500/5 via-blue-500/5 to-purple-500/5" />
 
               <div className="relative flex flex-col md:flex-row md:items-center justify-between gap-4">

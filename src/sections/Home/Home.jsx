@@ -1,5 +1,5 @@
 import React from "react";
-import { Sparkles, MessageCircle } from "lucide-react";
+import { Sparkles, MessageCircle, Trophy, Rocket, Users, Cpu } from "lucide-react";
 
 const Home = () => {
   return (
@@ -24,7 +24,7 @@ const Home = () => {
 
         {/* DESCRIPTION */}
         <p className="mt-6 text-base md:text-lg lg:text-xl text-gray-700 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed font-medium">
-          I design and build fast, responsive, and scalable web & mobile applications using React,
+          I design and build fast, responsive, and scalable websites using React,
           React Native Expo, Node.js, and modern cloud technologies. Let's create something impactful together.
         </p>
 
@@ -54,20 +54,25 @@ const Home = () => {
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
 
           {[
-            ["2+", "Years Experience"],
-            ["10+", "Projects Delivered"],
-            ["10+", "Happy Clients"],
-            ["15+", "Technologies"],
-          ].map(([num, label]) => (
+            { icon: <Trophy size={22} />, num: "2+", label: "Years Experience" },
+            { icon: <Rocket size={22} />, num: "10+", label: "Projects Delivered" },
+            { icon: <Users size={22} />, num: "10+", label: "Happy Clients" },
+            { icon: <Cpu size={22} />, num: "15+", label: "Technologies" },
+          ].map((item) => (
             <div
-              key={label}
+              key={item.label}
               className="p-6 rounded-3xl border border-slate-200 dark:border-white/10 bg-white/90 dark:bg-white/5 backdrop-blur-2xl shadow-sm hover:scale-105 hover:shadow-xl transition"
             >
+              <div className="flex justify-center mb-3 text-cyan-600 dark:text-cyan-400">
+                {item.icon}
+              </div>
+
               <h3 className="text-3xl md:text-4xl font-extrabold text-cyan-600 dark:text-cyan-400">
-                {num}
+                {item.num}
               </h3>
+
               <p className="text-sm md:text-base text-gray-700 dark:text-gray-400 mt-2 font-semibold">
-                {label}
+                {item.label}
               </p>
             </div>
           ))}
