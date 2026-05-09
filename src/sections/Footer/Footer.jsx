@@ -8,7 +8,7 @@ const Footer = () => {
       initial={{ y: 80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="fixed bottom-4 left-0 w-full z-40 px-4 pb-20"
+      className="relative w-full z-40 px-4 mt-20"
     >
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 md:gap-8 bg-gray-50/80 dark:bg-white/5 backdrop-blur-2xl border border-gray-200 dark:border-white/10 rounded-2xl p-4 md:p-6 shadow-[0_10px_40px_rgba(0,0,0,0.15)]">
 
