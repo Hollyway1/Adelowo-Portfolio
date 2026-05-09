@@ -8,7 +8,7 @@ const Footer = () => {
       initial={{ y: 80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="fixed bottom-4 left-0 w-full z-50 px-4"
+      className="fixed bottom-4 left-0 w-full z-40 px-4 pb-20"
     >
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 md:gap-8 bg-gray-50/80 dark:bg-white/5 backdrop-blur-2xl border border-gray-200 dark:border-white/10 rounded-2xl p-4 md:p-6 shadow-[0_10px_40px_rgba(0,0,0,0.15)]">
 
@@ -66,7 +66,7 @@ const Footer = () => {
             </span>
           </motion.a>
 
-          {/* INDEED (FIXED — CUSTOM PREMIUM ICON) */}
+          {/* INDEED */}
           <motion.a
             whileHover={{ scale: 1.2 }}
             href="https://www.indeed.com/adelowo-olaoluwa-samuel"
@@ -74,9 +74,7 @@ const Footer = () => {
             rel="noreferrer"
             className="group relative p-2 rounded-full bg-white dark:bg-white/10 border border-gray-200 dark:border-white/10 hover:border-indigo-500 transition"
           >
-            <span className="text-indigo-600 font-bold text-sm">
-              in
-            </span>
+            <span className="text-indigo-600 font-bold text-sm">in</span>
 
             <span className="absolute -top-10 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 transition text-xs px-2 py-1 rounded-md bg-black text-white">
               Indeed
