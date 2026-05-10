@@ -1,100 +1,169 @@
 .scene {
-  width: 420px;
-  height: 420px;
-  perspective: 1400px;
+  width: 450px;
+  height: 450px;
+  perspective: 2200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: visible;
 }
 
+/* 🌠 SPACE BACKGROUND DEPTH */
+.scene::before {
+  content: "";
+  position: absolute;
+  inset: -300px;
+  background: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.25;
+  animation: drift 80s linear infinite;
+}
+
+/* 🌌 ORBIT CORE SYSTEM */
 .orbit {
-  position: relative;
   width: 100%;
   height: 100%;
+  position: relative;
   transform-style: preserve-3d;
-  animation: spin 18s linear infinite;
-  transition: transform 0.6s ease;
+  transition: transform 0.2s ease-out;
+  animation: galaxy 40s linear infinite;
 }
 
-/* pause orbit when hovering skill */
 .orbit.paused {
   animation-play-state: paused;
 }
 
-/* CORE */
+/* 🧠 CENTER CORE (VISION PRO GLASS) */
 .core {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90px;
-  height: 90px;
+  transform: translate(-50%, -50%) translateZ(60px);
+
+  width: 110px;
+  height: 110px;
   border-radius: 50%;
-  background: radial-gradient(circle, #111, #000);
+
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(25px);
+
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255,255,255,0.1);
-  transition: all 0.4s ease;
+
+  border: 1px solid rgba(255,255,255,0.15);
+
+  color: white;
+  font-weight: bold;
+
+  box-shadow:
+    0 0 80px rgba(0,255,255,0.2),
+    inset 0 0 40px rgba(0,0,0,0.4);
 }
 
-.core-active {
-  box-shadow: 0 0 40px rgba(34,211,238,0.4);
+.coreFocus {
+  transform: translate(-50%, -50%) translateZ(120px);
+  box-shadow: 0 0 120px rgba(0,255,255,0.35);
 }
 
-/* pulse */
+/* 💫 PULSE FIELD */
 .pulse {
   position: absolute;
   width: 100%;
   height: 100%;
   border-radius: 50%;
   background: rgba(0,255,255,0.15);
-  animation: pulse 2s infinite;
+  animation: pulse 2.5s infinite;
 }
 
-/* PLANETS */
+/* 🪐 PLANET ORBIT SYSTEM */
 .planet {
   position: absolute;
   top: 50%;
   left: 50%;
+
+  transform-style: preserve-3d;
+
   transform:
     rotate(calc(var(--i) * (360deg / var(--total))))
-    translateX(160px)
+    translateX(190px)
+    translateZ(calc((var(--i) % 4) * 80px))
     rotate(calc(var(--i) * (-360deg / var(--total))));
-  transition: all 0.4s ease;
+
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* dim effect when another skill is active */
+/* 🧲 GRAVITY HOVER */
+.planet:hover {
+  transform:
+    rotate(calc(var(--i) * (360deg / var(--total))))
+    translateX(240px)
+    translateZ(180px)
+    scale(1.6)
+    rotate(calc(var(--i) * (-360deg / var(--total))));
+
+  z-index: 100;
+}
+
+/* 🌫 DIM OTHER PLANETS */
 .planet.dim {
-  opacity: 0.25;
-  transform:
-    rotate(calc(var(--i) * (360deg / var(--total))))
-    translateX(150px)
-    scale(0.9)
-    rotate(calc(var(--i) * (-360deg / var(--total))));
+  opacity: 0.15;
+  filter: blur(1px);
 }
 
+/* 🌍 PLANET GLASS SURFACE */
 .planet-inner {
-  width: 58px;
-  height: 58px;
+  width: 62px;
+  height: 62px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(12px);
+
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(18px);
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  border: 1px solid rgba(255,255,255,0.1);
+
   transition: all 0.3s ease;
 }
 
-/* hover glow handled inline + here */
-.planet-inner:hover {
-  transform: scale(1.25);
+/* 🌟 ICON ENERGY */
+.planet-inner span {
+  filter: drop-shadow(0 0 10px rgba(255,255,255,0.3));
 }
 
-/* animations */
-@keyframes spin {
-  0% { transform: rotateY(0deg) rotateX(10deg); }
-  100% { transform: rotateY(360deg) rotateX(10deg); }
+/* ⚡ ENERGY BEAM (VISION PRO EFFECT) */
+.energyBeam {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 120px;
+  background: linear-gradient(to top, transparent, cyan, transparent);
+  transform-origin: top;
+  animation: beam 0.8s ease-out;
+}
+
+/* 🌌 ANIMATIONS */
+@keyframes galaxy {
+  0% { transform: rotateX(18deg) rotateY(0deg); }
+  100% { transform: rotateX(18deg) rotateY(360deg); }
 }
 
 @keyframes pulse {
   0% { transform: scale(1); opacity: 0.6; }
-  100% { transform: scale(1.6); opacity: 0; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+@keyframes drift {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-200px); }
+}
+
+@keyframes beam {
+  0% { opacity: 0; transform: scaleY(0); }
+  100% { opacity: 1; transform: scaleY(1); }
 }

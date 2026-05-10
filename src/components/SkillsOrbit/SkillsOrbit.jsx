@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import * as SiIcons from "react-icons/si";
 import {
-  Code2,
   Palette,
   Braces,
   FileCode,
   Layers,
-  Boxes,
   Globe,
   Wind,
 } from "lucide-react";
@@ -15,10 +13,8 @@ import "./SkillsOrbit.css";
 const skills = [
   { name: "React", icon: <SiIcons.SiReact />, color: "#61DAFB" },
   { name: "Next.js", icon: <SiIcons.SiNextdotjs />, color: "#ffffff" },
-  { name: "TypeScript", icon: <SiIcons.SiTypescript />, color: "#3178C6" },
   { name: "JavaScript", icon: <SiIcons.SiJavascript />, color: "#F7DF1E" },
   { name: "Tailwind", icon: <SiIcons.SiTailwindcss />, color: "#38BDF8" },
-  { name: "Redux", icon: <SiIcons.SiRedux />, color: "#764ABC" },
 ];
 
 const SkillsOrbit = () => {
@@ -28,17 +24,14 @@ const SkillsOrbit = () => {
     { name: "HTML", icon: <FileCode size={16} /> },
     { name: "CSS", icon: <Palette size={16} /> },
     { name: "JavaScript", icon: <Braces size={16} /> },
-    { name: "TypeScript", icon: <Code2 size={16} /> },
     { name: "ReactJS", icon: <Layers size={16} /> },
-    { name: "Redux", icon: <Boxes size={16} /> },
     { name: "NextJS", icon: <Globe size={16} /> },
     { name: "TailwindCSS", icon: <Wind size={16} /> },
   ];
 
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center bg-white dark:bg-black text-black dark:text-white px-6 overflow-hidden">
-
-      {/* 🌌 BACKGROUND */}
+      {/* BACKGROUND */}
       <div className="absolute inset-0">
         <div className="absolute top-[-200px] left-[-200px] w-[600px] h-[600px] bg-cyan-500/20 blur-[180px] rounded-full" />
         <div className="absolute bottom-[-200px] right-[-200px] w-[600px] h-[600px] bg-purple-600/20 blur-[180px] rounded-full" />
@@ -46,10 +39,8 @@ const SkillsOrbit = () => {
       </div>
 
       <div className="relative z-10 flex flex-col items-center">
-
         {/* HEADER */}
         <div className="text-center max-w-4xl mb-10">
-
           <h2 className="text-5xl md:text-7xl font-extrabold tracking-tight">
             Skills
           </h2>
@@ -57,16 +48,17 @@ const SkillsOrbit = () => {
           <div className="h-[2px] w-24 bg-cyan-400 mx-auto my-6 shadow-[0_0_20px_#22d3ee]" />
 
           <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed">
-            I specialize in modern front-end technologies and consistently apply best practices
-            to build <span className="text-black dark:text-white font-semibold">high-performance</span>,
-            scalable, and visually immersive web applications.
+            I specialize in modern front-end technologies and consistently apply
+            best practices to build{" "}
+            <span className="text-black dark:text-white font-semibold">
+              high-performance
+            </span>
+            , scalable, and visually immersive web applications.
           </p>
-
         </div>
 
-        {/* 🧩 SKILL TAGS (UPGRADED) */}
+        {/* SKILL TAGS */}
         <div className="flex flex-wrap justify-center gap-3 mb-14 max-w-3xl">
-
           {tags.map((item) => (
             <span
               key={item.name}
@@ -85,7 +77,6 @@ const SkillsOrbit = () => {
               {item.name}
             </span>
           ))}
-
         </div>
 
         {/* ORBIT TITLE */}
@@ -95,17 +86,12 @@ const SkillsOrbit = () => {
 
         {/* ORBIT */}
         <div className="scale-125 md:scale-150">
-
           <div className="scene">
-
             <div className={`orbit ${active !== null ? "paused" : ""}`}>
-
               {/* CORE */}
               <div className={`core ${active !== null ? "core-active" : ""}`}>
                 <div className="pulse" />
-                <span className="text-sm font-bold tracking-widest">
-                  DEV
-                </span>
+                <span className="text-sm font-bold tracking-widest">DEV</span>
               </div>
 
               {/* PLANETS */}
@@ -137,7 +123,8 @@ const SkillsOrbit = () => {
                         style={{
                           color: skill.color,
                           fontSize: "22px",
-                          filter: "drop-shadow(0 0 10px rgba(255,255,255,0.2))",
+                          filter:
+                            "drop-shadow(0 0 10px rgba(255,255,255,0.2))",
                         }}
                       >
                         {skill.icon}
@@ -146,12 +133,9 @@ const SkillsOrbit = () => {
                   </div>
                 );
               })}
-
             </div>
           </div>
-
         </div>
-
       </div>
     </section>
   );
